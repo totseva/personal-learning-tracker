@@ -40,3 +40,5 @@ Ideas Behind the Project
 3. Flexibility for beginners
 - Built entirely with HTML, CSS, and JavaScript — no frameworks required.
 - Easy to extend with new cards, categories, or features.
+
+Date created: 11.01.2026
