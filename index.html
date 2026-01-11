@@ -25,81 +25,82 @@
         </div>
 
         <div class="cards">
-            <div class="card">
+            <div class="card html">
                 <h2>HTML Basics</h2>
                 <p>HTML is the structure of a webpage. It defines headings, paragraphs, links, images, and
                     sections.<br><br><b>Status:</b> Done</p>
             </div>
-            <div class="card">
+            <div class="card html">
                 <h2>Headings from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></h2>
                 <p>Headings define the structure of a page. <code>&lt;h1&gt;</code> is the main title, while
                     <code>&lt;h2&gt;</code>–<code>&lt;h6&gt;</code> are used for sections and
-                    subsections.<br><br><b>Status:</b> Learning</p>
+                    subsections.<br><br><b>Status:</b> Learning
+                </p>
             </div>
-            <div class="card">
+            <div class="card html">
                 <h2>Divs & Containers</h2>
                 <p><code>&lt;div&gt;</code> elements are used to group content together so it can be styled or
                     positioned with
                     CSS.<br><br><b>Status:</b> Learning</p>
             </div>
-            <div class="card">
+            <div class="card html">
                 <h2>Links & Images</h2>
                 <p>Links <code>&lt;a&gt;</code> connect pages together, and images <code>&lt;img&gt;</code> display
                     visuals on a webpage.<br><br><b>Status:</b> Done
                 </p>
             </div>
-            <div class="card">
+            <div class="card html">
                 <h2>Lists</h2>
                 <p>Lists <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code> are used to group
                     related items, like menus or steps in a process.<br><br><b>Status:</b>
                     Learning</p>
             </div>
-            <div class="card">
+            <div class="card html">
                 <h2>Accessibility Basics</h2>
                 <p>Using proper labels, alt text, and semantic tags helps screen readers understand your
                     page.<br><br><b>Status:</b> Learning</p>
             </div>
-            <div class="card">
+            <div class="card css">
                 <h2>CSS Basics</h2>
                 <p>CSS controls how HTML looks: colors, spacing, fonts, and layout.<br><br><b>Status:</b> Done</p>
             </div>
-            <div class="card">
+            <div class="card css">
                 <h2>Flexbox</h2>
                 <p>Flexbox is a one-dimensional layout system used to align items in a row or a
                     column.<br><br><b>Status:</b>
                     Learning</p>
             </div>
-            <div class="card">
+            <div class="card css">
                 <h2>CSS Grid</h2>
                 <p>Grid is a two-dimensional layout system for building rows and columns at the same
                     time.<br><br><b>Status:</b> Learning</p>
             </div>
-            <div class="card">
+            <div class="card css">
                 <h2>Responsive Design</h2>
                 <p>Responsive design makes layouts adapt to different screen sizes using media queries and flexible
                     units.<br><br><b>Status:</b> Learning</p>
             </div>
-            <div class="card">
+            <div class="card javascript">
                 <h2>JavaScript Basics</h2>
                 <p>JavaScript adds interactivity to websites, like handling clicks, forms, and dynamic
                     content.<br><br><b>Status:</b> Done</p>
             </div>
-            <div class="card">
+            <div class="card javascript">
                 <h2>Variables & Functions</h2>
                 <p>Variables store data and functions group reusable logic that runs when called.<br><br><b>Status:</b>
                     Learning</p>
             </div>
-            <div class="card">
+            <div class="card javascript">
                 <h2>DOM Manipulation</h2>
                 <p>The DOM lets JavaScript read and change HTML elements on the page.<br><br><b>Status:</b> Learning</p>
             </div>
-            <div class="card">
+            <div class="card javascript">
                 <h2>Frameworks Overview</h2>
                 <p>Frameworks like React, Vue, and Svelte help build complex interfaces more
                     efficiently.<br><br><b>Status:</b>
                     Not started</p>
             </div>
-            <div class="card">
+            <div class="card tools">
                 <h2>Git & GitHub</h2>
                 <p>Git tracks code changes, and GitHub is used to store and share repositories
                     online.<br><br><b>Status:</b>
@@ -112,6 +113,29 @@
     <div class="footer">
         © 2026 Learning Tracker — Built by Marina Totseva
     </div>
+
+    <script>
+        const links = document.querySelectorAll('.sidebar a');
+        const cards = document.querySelectorAll('.card');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const category = link.textContent.toLowerCase();
+
+                cards.forEach(card => {
+                    if (category === 'overview') {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = card.classList.contains(category) ? '' : 'none';
+                    }
+                });
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
